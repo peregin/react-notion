@@ -89,7 +89,7 @@ interface Block {
   blockMap: BlockMapType;
   mapPageUrl: MapPageUrl;
   mapImageUrl: MapImageUrl;
-  children: any,
+  children: any;
   fullPage?: boolean;
   hideHeader?: boolean;
   customBlockComponents?: CustomBlockComponents;
