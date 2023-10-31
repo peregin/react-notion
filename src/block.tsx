@@ -89,7 +89,7 @@ interface Block {
   blockMap: BlockMapType;
   mapPageUrl: MapPageUrl;
   mapImageUrl: MapImageUrl;
-
+  children: any,
   fullPage?: boolean;
   hideHeader?: boolean;
   customBlockComponents?: CustomBlockComponents;
@@ -532,11 +532,13 @@ export const Block: React.FC<Block> = props => {
     level !== 0
   ) {
     const CustomComponent = customBlockComponents[blockValue?.type]!;
+    const bv = blockValue as BlockValueProp<typeof blockValue.type>;
     return (
       <CustomComponent
         renderComponent={renderComponent}
         blockMap={blockMap}
-        blockValue={blockValue as BlockValueProp<typeof blockValue.type>}
+        // @ts-ignore
+        blockValue={bv}
         level={level}
       >
         {children}
